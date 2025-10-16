@@ -1,0 +1,19 @@
+<div class="w-25">
+    <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="authenticate()">
+        <label>Enter UserID</label>
+        <input type="number" formControlName="id" class="form-control form-control-lg"> <br />
+        <label>Enter Password</label>
+        <input type="password" formControlName="password" class="form-control form-control-log"><br />
+        <input type="submit" value="Login" class="w-100 btn btn-primary btn-lg">
+    </form>
+    <h2>Login Form</h2>
+    <p>Form is Pending</p> 
+
+    <a routerLink="/register">Register</a>
+
+    <br>
+    <button routerLink="/register" class="w-100 btn btn-primary"> Create Account</button>
+  <a routerLink="/success/0">Success</a>
+</div>
