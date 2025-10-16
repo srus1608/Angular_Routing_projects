@@ -4,3 +4,44 @@
     <p>Form is pending......</p>
     <a routerLink="/login">Login</a>
 </div>
+<div>
+    <h2>Registration Form</h2>
+    <div class="w-50">
+        <div *ngIf="feedbackMessage" class="alert" [ngClass]="{'alert-success': feedbackType === 'success', 'alert-danger': feedbackType === 'error'}">
+            {{feedbackMessage}}
+        </div>
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+            <div class="mb-3">
+                <label class="form-label">User id</label>
+                <input type="number" class="form-control form-control-lg" formControlName="id">
+                <div *ngIf="registerForm.controls.id.touched && registerForm.controls.id.invalid" class="text-danger small">
+                    A positive numeric id is required.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Full name</label>
+                <input type="text" class="form-control form-control-lg" formControlName="name" autocomplete="name">
+                <div *ngIf="registerForm.controls.name.touched && registerForm.controls.name.invalid" class="text-danger small">
+                    Name must be at least 2 characters long.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control form-control-lg" formControlName="password" autocomplete="new-password">
+                <div *ngIf="registerForm.controls.password.touched && registerForm.controls.password.invalid" class="text-danger small">
+                    Password must be at least 4 characters long.
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="form-label">Date of birth</label>
+                <input type="date" class="form-control form-control-lg" formControlName="dob">
+                <div *ngIf="registerForm.controls.dob.touched && registerForm.controls.dob.invalid" class="text-danger small">
+                    Date of birth is required.
+                </div>
+            </div>
+            <input type="submit" value="Register" class="w-100 btn btn-primary btn-lg">
+        </form>
+        <hr />
+        <button class="btn btn-link p-0" type="button" (click)="navigateToLogin()">Already have an account? Login</button>
+    </div>
+</div>
