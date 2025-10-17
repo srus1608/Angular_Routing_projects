@@ -11,7 +11,9 @@ import { Search } from './search/search';
 import { Settings } from './settings/settings';
 import { Dashboard } from './dashboard/dashboard';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { provideHttpClient } from '@angular/common/http';
+import { Users } from './users/users';
+import { Box } from './box/box';
 @NgModule({
   declarations: [
     App,
@@ -21,16 +23,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     Add,
     Search,
     Settings,
-    Dashboard
+    Dashboard,
+    Users,
+    Box
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
+    AppRoutingModule, FormsModule, ReactiveFormsModule,
+    
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    provideHttpClient()
   ],
   bootstrap: [App]
 })

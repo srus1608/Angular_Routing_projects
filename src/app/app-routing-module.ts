@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Login } from './login/login';
 import { Register } from './register/register';
@@ -7,24 +7,24 @@ import { Dashboard } from './dashboard/dashboard';
 import { Search } from './search/search';
 import { Add } from './add/add';
 import { Settings } from './settings/settings';
+import { authDemoGuard } from './auth-demo-guard';
+import { Users } from './users/users';
 
-const routes: Routes = [{path:'',component:Login},
+const routes: Routes = [
+  {path:'',component:Login},
   {path:'login',component:Login},
   {path:'register',component:Register},
-    // :id - dyanmic id ...anything like success/1,success/2.....
-
-  {path:'success/:id',component:Success,children:[
+  {path:'users',component:Users},
+  {path:'success/:id',component:Success,
+    canActivate:[authDemoGuard],
+    children:[
     {path:'',component:Dashboard},
     {path:'dashboard',component:Dashboard},
     {path:'search',component:Search},
     {path:'add',component:Add},
     {path:'settings',component:Settings},
-    {path:'logout', component:Login}
-
   ]},
   
-  // id - static id
-  // {path:'success/id',component:Success ,children:[]}
 ];
 
 @NgModule({
@@ -32,3 +32,4 @@ const routes: Routes = [{path:'',component:Login},
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
