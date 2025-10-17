@@ -13,7 +13,9 @@ import { Dashboard } from './dashboard/dashboard';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 import { Users } from './users/users';
-import { Box } from './box/box';
+// import { TextBox } from './box/box';
+import { DetailBox } from './detail-box/detail-box';
+import { UserItem } from './user-item/user-item';
 @NgModule({
   declarations: [
     App,
@@ -25,7 +27,9 @@ import { Box } from './box/box';
     Settings,
     Dashboard,
     Users,
-    Box
+    // Box,
+    DetailBox,
+    UserItem,
   ],
   imports: [
     BrowserModule,

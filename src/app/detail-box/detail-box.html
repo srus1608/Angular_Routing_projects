@@ -1,0 +1,20 @@
+<p>detail-box works!</p>
+<div>
+    <h2>Enter ID</h2>
+
+<form [formGroup]="form" (ngSubmit)="getUser()">
+  <input type="text" formControlName="id" placeholder="Enter user id">
+  <button type="submit">Get User</button>
+</form>
+
+<div>
+  <div *ngIf="user">
+    <h3>User Details</h3>
+    <p><b>Name:</b> {{ user.name }}</p>
+    <p><b>Email:</b> {{ user.email }}</p>
+    <p><b>Phone:</b> {{ user.phone }}</p>
+  </div>
+
+  <p *ngIf="message">{{ message }}</p>
+</div>
+</div>
